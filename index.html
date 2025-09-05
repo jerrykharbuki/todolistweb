@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <style>
+    body {
+      background-color: aqua;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      padding-top: 80px;
+    }
+    .todo-container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+    #addBtn {
+      background-color: #f3f7fe;
+      color: #3b82f6;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      width: 100px;
+      height: 45px;
+      transition: 0.3s;
+    }
+    #taskInput {
+      box-sizing: border-box;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      background: #e8dddd;
+      padding: 9px;
+      width: 100%;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #f1f1f1;
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 6px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="todo-container">
+    <h2>My To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Add a task..."><br><br>
+    <button id="addBtn">Add</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    const button = document.getElementById("addBtn");
+    const taskInput = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+
+    button.onclick = function () {
+      let textTask = taskInput.value;
+
+      if (textTask === "") {
+        alert("Please enter something!");
+        return;
+      }
+
+      let li = document.createElement("li");
+      li.textContent = textTask;
+
+      taskList.appendChild(li);
+      taskInput.value = ""; 
+    };
+  </script>
+</body>
+</html>
